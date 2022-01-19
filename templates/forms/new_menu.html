@@ -1,0 +1,22 @@
+{% extends 'layouts/main.html' %}
+{% block title %} New Menu Item {% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form action="/vendors/{{vendor_id}}/add_menu_item" method="post" class="form">
+      <h3 class="form-heading">Add a new menu item</h3>
+
+      <div class="form-group">
+        <label for="item">Item</label>
+        {{ form.item(class_ = 'form-control', placeholder='burger', autofocus = true) }}
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        {{ form.price(class_ = 'form-control', placeholder=11, autofocus = true) }}
+      </div>
+
+      <input type="submit" value="Create Item" class="btn btn-primary btn-lg btn-block">
+    </form>
+  </div>
+
+  {% endblock %}

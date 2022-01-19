@@ -1,0 +1,15 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New User{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form method="post" class="form">
+      <h3 class="form-heading">Create a new user</h3>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        {{ form.username(class_ = 'form-control', placeholder='john-doe', autofocus = true) }}
+      </div>
+      <input type="submit" value="Create User" class="btn btn-primary btn-lg btn-block">
+    </form>
+  </div>
+{% endblock %}

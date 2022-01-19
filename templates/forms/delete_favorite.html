@@ -1,0 +1,19 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Delete Favorite{% endblock %}
+{% block content %}
+
+<form action = "/users/{{data.user_id}}/delete_favorites_info" method = "post" >
+    <div>
+        <label for="favorite">Choose a vendor to remove from your favorites:</label>
+        <select id="vendor" name="vendor">
+            {%for vendor in data.vendors%}
+                <option value={{vendor.id}}>{{vendor.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <input type="submit">
+
+</form>
+
+{% endblock %}

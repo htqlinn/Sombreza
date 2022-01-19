@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>What to Eat?</title>
+<style>
+    body {
+    background-color: lightblue;
+    font-family: Helvetica;
+    }
+    
+    #main {
+    width: 80%;
+    max-width: 950px;
+    border: 1px gray solid;
+    margin: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    }
+    
+    #header {
+    margin-top: 0;
+    border: 2px solid black;
+    padding: 5px;
+    height: 250px;
+    background: beige;
+    background-image: url("code.jpg");
+    color: white;
+    }
+
+        label {
+    display: block;
+    }
+
+    input {
+    width: 30px;
+    margin-left: 20px;
+    }
+
+    button {
+    width: 100px;
+    margin-top: 20px;
+    }
+    </style>
+    
+    
+</head>
+<body>
+    <div id="main"><!-- open main div -->
+        <div id="header"><!-- open header div -->
+        <h1>JavaScript Quiz</h1>
+        </div><!-- close header div -->
+        
+        <form action = "/quiz/results" method = "post" > 
+            <h2>How hungry are you?</h2>
+            <label for="hungry1"><input type="radio" name="hungry" value=1 id="Not that hungry" />Not that hungry.</label>
+            <label for="hungry2"><input type="radio" name="hungry" value=2 id="Something light" />Want something light.</label>
+            <label for="hungry3"><input type="radio" name="hungry" value=3 id="Moderately hungry" />Moderately hungry.</label>
+            <label for="hungry4"><input type="radio" name="hungry" value=4 id="Very hungry"/>Extremely hungry!</label>
+            
+            <h2>How much time do you have?</h2>
+            <label for="time1"><input type="radio" name="time" value=1 id="Lots"/>All the time in the world.</label>
+            <label for="time2"><input type="radio" name="time" value=2 id="Mid"/>I can wait if I need to.</label>
+            <label for="time3"><input type="radio" name="time" value=3 id="None" />I need something fast!</label>
+          
+            
+            <h2>What time of day is it?</h2>
+            <label for="hour1"><input type="radio" name="hour" value=1 id="Morning" />Morning.</label>
+            <label for="hour2"><input type="radio" name="hour" value=2 id="Afternoon" />Afternoon.</label>
+            <label for="hour3"><input type="radio" name="hour" value=1 id="Dinner" />Dinner.</label>
+            <label for="hour4"><input type="radio" name="hour" value=3 id="Midnight" />Midnight.</label>
+            
+            <h2>Are you planning on eating with somebody else?</h2>
+            <label for="company1"><input type="radio" name="company" value=1 id="No" />No.</label>
+            <label for="company2"><input type="radio" name="company" value=2 id="1 Person" />Yes, one person.</label>
+            <label for="company3"><input type="radio" name="company" value=2 id="2-5 people" />Yes, two to five more people</label>
+            <label for="company4"><input type="radio" name="company"  value=3 id="6 and Up" />Yes, more than six.</label>
+            
+            <h2>What is your budget for today?</h2>
+            <label for="cheap"><input type="radio" name="budget" value=1 id="cheap" />I prefer the cheapest option.</label>
+            <label for="mid"><input type="radio" name="budget" value=2 id="mid" />Average.</label>
+            <label for="unlimited"><input type="radio" name="budget" value=3 id="unlimited" />Unlimited.</label>
+
+            <button type="submit" value="Submit">Submit</button>
+            
+            </form>
+            
+                    
+        
+        </div><!-- close main div -->
+
+            
+</body>
+</html>

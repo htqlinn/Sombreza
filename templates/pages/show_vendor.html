@@ -1,0 +1,102 @@
+{% extends 'layouts/main.html' %}
+{% block title %}{{ vendor.name }} | Vendor {% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-sm-6">
+		<h1>{{ vendor.name }}</h1>
+			
+			<p class="id">
+				ID: {{ vendor.id }}
+			</p>
+			<p class="category">
+				Category: {{ vendor.category}}
+			</p>
+			<p class="cuisine">
+				Cuisine: {{ vendor.cuisine}}
+			</p>
+			<p class="cost">
+				Cost: {{ vendor.cost}}
+			</p>
+			<p class="Points per dollar spent">
+				Points Per Dollar Spent: {{ vendor.purchase_to_points}}
+			</p>
+			<p class="location">
+				Location: {{ vendor.location}}
+			</p>
+	</div>
+</div>
+<br>
+<div class="container">
+	<h2>Menu</h2>
+	<table class="table">
+		<thread>
+			<tr>
+				<th>Item</th>
+				<th>Price</th>
+			</tr>
+		</thread>
+
+		<tbody>
+			{%for menu in vendor.fullMenu %}
+			<tr> 
+				<td>{{menu.menu_item}}</td>
+				<td>{{menu.menu_price}}</td>
+			</tr>
+			
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+	<a href="/vendors/{{ vendor.id }}/purchase" class="btn btn-secondary btn-lg">Log Purchase from Menu</a>
+<br>
+<br>
+	<div class="container">
+		<h2>Deals</h2>
+		<table class="table">
+			<thread>
+				<tr>
+					<th>Item</th>
+					<th>Lowered Price</th>
+					<th>Points to Purchase</th>
+				</tr>
+			</thread>
+			<tbody>
+				{%for deal in vendor.allDeals %}
+				<tr>
+					<td>{{deal.item}}</td>
+					<td>${{deal.price}}</td>
+					<td>{{deal.points_required}}</td>
+				</tr>
+				
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+<a href="/vendors/{{ vendor.id }}/purchase_deal" class="btn btn-secondary btn-lg"> Log Purchase from Deal</a>
+
+<section>
+	<h2> Top Similar Vendors</h2>
+		{%for record in vendor.similar_vendors %}
+		<p class="item">
+			Name: {{ record.vendor.name}} <br>
+			Similarity: {{record.count}} out of 3
+		</p>
+		{% endfor %}
+</section>
+
+<div class="btn-group">
+	<a href="/vendors/{{ vendor.id }}/edit" class="btn btn-info btn-lg">Edit Vendor Info</a>
+	<a href="/vendors/delete/{{ vendor.id }}" class="btn btn-info btn-lg">Delete Vendor</a>
+	<a href="/vendors/{{ vendor.id }}/add_menu_item" class="btn btn-info btn-lg">Add Menu Item</a>
+	<a href="/vendors/{{ vendor.id }}/delete_menu_item" class="btn btn-info btn-lg">Delete Menu Item</a>
+	<a href="/deals/create" class="btn btn-info btn-lg">Create a new deal</a>
+</div>
+
+
+
+
+
+
+{% endblock %}
+

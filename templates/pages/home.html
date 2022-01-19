@@ -1,0 +1,45 @@
+{% extends 'layouts/main.html' %}
+{% block title %} Sombrezos{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-sm-6">
+		<h1>Sombrezos  </h1>
+		<p class="lead">A Virtual Food Court</p>
+		<div class="btn-group">
+			<a href="/users"class="btn btn-primary">Find a user</a>
+			<a href="/users/create" class="btn btn-primary">Create a user</a>
+		</div>
+		<br>
+		<br>
+		<div class="btn-group">
+			<a href="/vendors" class="btn btn-primary">Find a vendor</a>
+			<a href="/vendors/create" class="btn btn-primary">Create a vendor</a>
+		</div>
+		<br>
+		<br>
+		<a href="/quiz" class="btn btn-secondary">Take our quiz!</a>
+	</div>
+	
+
+	<div class="col-sm-6 hidden-sm hidden-xs">
+		<img id="front-splash" src="{{ url_for('static',filename='img/front-splash.jpg') }}" alt="Front Photo of Food Court" />
+	</div>
+</div>
+
+<!-- 
+<section class="row">
+	<h3>Recent Listed Vendors</h3>
+	<div class="row">
+	    {%for vendor in vendors %}
+	    <div class="col-sm-4">
+	        <div class="tile">
+	        	<h4>{{ vendor.name }}</h4>
+	        	<h4>ID: {{ vendor.id }}</h4>
+	            <h5><a href="/vendors/{{ vendor.id }}">{{ vendor.name }}</a></h5>
+	        </div>
+	    </div>
+	    {% endfor %}
+	</div>
+</section>
+-->
+{% endblock %}

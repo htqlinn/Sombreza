@@ -1,0 +1,61 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Vendor{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form method="post" class="form">
+      <h3 class="form-heading">List a new vendor</h3>
+      <div class="form-group">
+        <label for="name">Name</label>
+        {{ form.name(class_ = 'form-control', autofocus = true, ) }}
+      </div>
+
+      <div class="form-group">
+          <label>Category</label>
+          <div class="form-inline">
+            <div class="form-group">
+              {{ form.category(class_ = 'form-control', placeholder='category', autofocus = true) }}
+            </div>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label>Cost</label>
+        <div class="form-inline">
+          <div class="form-group">
+            {{ form.cost(class_ = 'form-control', placeholder='cost', autofocus = true) }}
+            </div>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label>Cuisine</label>
+         <div class="form-inline">
+          <div class="form-group">
+            {{ form.cuisine(class_ = 'form-control', placeholder='cuisine', autofocus = true) }}
+            </div>
+          </div>
+         </div>
+  
+      <div class="form-group">
+        <label>Location</label>
+        <div class="form-inline">
+        <div class="form-group">
+          {{ form.location(class_ = 'form-control', autofocus = true) }}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Points Per Dollar Spent</label>
+        <div class="form-inline">
+        <div class="form-group">
+          {{ form.purchase_to_points(class_ = 'form-control', autofocus = true) }}
+          </div>
+        </div>
+      </div>
+
+        
+      <input type="submit" value="Create Vendor" class="btn btn-primary btn-lg btn-block">
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Sombreza | Vendors{% endblock %}
+{% block content %}
+
+<h4> Vendors </h4>
+<div class="list-group">
+	{% for vendor in data.vendors %}
+	
+		<a href="/vendors/{{ vendor.id }}" class="list-group-item"> {{ vendor.name }} </a>
+	{% endfor %}
+</div>
+<br>
+<br>
+<br>
+
+<h4> Deals </h4>
+<ul>
+	{% for deal in data.deals %}
+		<p>{{ deal.vendor_name }} : {{ deal.deal_item }} for {{ deal.deal_price }} dollars or {{ deal.deal_points }} points</p>
+	{% endfor %}
+</ul>
+
+{% endblock %}

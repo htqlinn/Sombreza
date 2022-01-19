@@ -1,0 +1,47 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Purchase{% endblock %}
+{% block content %}
+
+<h4>Log if you used points </h4>
+<form action = "/vendors/{{data.vendor_id}}/purchase_deal_info" method = "post" >
+    <div>
+        <label for="user">Choose a user:</label>
+        <select id="user" name="user">
+        {%for user in data.users%}
+            <option value={{user.id}}>{{user.username}}</option>
+        {% endfor %}
+        </select>
+    </div>
+   
+    <br>
+    <div> Choose the item you purchased: 
+        {%for deal in data.deals%}
+        
+        <div class="radio">
+            <input type="radio" id="item" name="item" value= {{deal.id}}>
+            <label for={{deal.id}}>{{deal.item}}: ${{deal.price}} or {{deal.points}} reward points</label>
+        </div>
+
+        {% endfor %}
+    </div>
+   <br>
+
+    <div> Choose what you paid with:
+        
+        <div class="radio">
+            <input type="radio" id="money" name="purchase_type" value="money">
+            <label for="money"> Money </label>
+        </div>
+       
+        <div class="radio">
+            <input type="radio" id="points" name="purchase_type" value="points">
+            <label for="points"> Points </label>
+        </div>
+           
+    </div>
+    <br>
+
+   <input type="submit">
+</form>
+
+{% endblock %}

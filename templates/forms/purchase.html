@@ -1,0 +1,30 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Purchase{% endblock %}
+{% block content %}
+
+<h4>Log the purchase you made</h4>
+<form action = "/vendors/{{data.vendor_id}}/purchase_info" method = "post" >
+    <div>
+        <label for="user">Choose a user:</label>
+        <select id="user" name="user">
+        {%for user in data.users%}
+            <option value={{user.id}}>{{user.username}}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <br>
+   
+    <div> Choose the item you purchased:
+        {%for menu in data.menu%}
+        <div class="radio">
+            <input type="radio" id="items" name="items" value={{menu.menu_id}}>
+            <label for={{menu.menu_id}}>{{menu.menu_item}}: ${{menu.menu_price}}</label>
+        </div>
+        
+        {% endfor %}
+    </div>
+
+   <input type="submit">
+</form>
+
+{% endblock %}

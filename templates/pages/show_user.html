@@ -1,0 +1,58 @@
+{% extends 'layouts/main.html' %}
+{% block title %}{{ user.username }} | User {% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-sm-6">
+		<h3>
+			{{ user.username }}
+			</h3>
+			<p class="lead"> ID: 
+				{{ user.id }}
+			</p>
+			
+			<p class="lead"> Favorite Vendors: </p> 
+
+				{%for fav in user.favorites%}
+				<p>{{ fav }}</p>
+				{% endfor %}
+			</div>
+</div>
+
+<section>
+	<h2 class="lead">Recommended Vendors From Favorites</h2>
+		<p class="subtitle"> The higher recommendation score, the better the recommendation </p>
+		{%for record in user.recs %}
+		<p class="item">
+			Name: {{ record.vendor.name}} <br>
+			Recommendation Score: {{record.count}} 
+		</p>
+		{% endfor %}
+</section>
+
+<div class="container">
+	<h2>Rewards</h2>
+	<table class="table">
+		<thread>
+			<tr>
+				<th>Vendor</th>
+				<th>Points</th>
+			</tr>
+		</thread>
+
+		<tbody>
+			{% for info in user.rewards %}
+			<tr> 
+				<td>{{info.vendor}}</td>
+				<td>{{info.points}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+	<a href="/users/delete/{{ user.id }}" class="btn btn-primary"> Delete: {{ user.username }}</a>
+	<a href="/users/{{ user.id }}/add_favorites" class="btn btn-light"> Add vendor to favorites for: {{ user.username }}</a>
+	<a href="/users/{{ user.id }}/delete_favorites" class="btn btn-light"> Remove vendor from favorites for: {{ user.username }}</a>
+
+
+
+{% endblock %}
